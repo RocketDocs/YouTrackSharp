@@ -49,7 +49,7 @@ namespace YouTrackSharp.Issues
             }
             
             var client = await _connection.GetAuthenticatedHttpClient();
-            var response = await client.GetAsync($"rest/issue/{issueId}?wikifyDescription={wikifyDescription}");
+            var response = client.GetAsync($"rest/issue/{issueId}?wikifyDescription={wikifyDescription}").Result;
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {

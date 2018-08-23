@@ -84,7 +84,7 @@ namespace YouTrackSharp
                     { "password", _password }
                 };
             
-                var response = await _httpClient.PostAsync("rest/user/login", new FormUrlEncodedContent(formData));
+                var response = _httpClient.PostAsync("rest/user/login", new FormUrlEncodedContent(formData)).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
